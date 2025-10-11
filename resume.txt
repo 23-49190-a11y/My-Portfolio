@@ -1,0 +1,20 @@
+Jhun-jhun C. Bonado
+BSIT Student — Batangas State University
+
+Contact: youremail@example.com
+
+Summary
+A motivated web developer and IT student with experience building responsive front-ends, small web systems, and community-focused projects.
+
+Skills
+- HTML, CSS, JavaScript
+- Python
+- Git & GitHub
+
+Experience
+- Student projects: Explore Mabini (tourism site), Clothing Shop (e-commerce UI), Fish Map System (capstone mapping project)
+
+Education
+- BSIT, Batangas State University
+
+Note: Replace this placeholder with your real resume PDF named `Jhun-jhun_Bonado_Resume.pdf` in the project root for direct PDF download.
