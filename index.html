@@ -1397,7 +1397,7 @@
   </section>
 
   <main>
-    <!-- About Section -->
+    <!-- About Section - UPDATED WITH YOUR PINTEREST IMAGE -->
     <section id="about" class="reveal">
       <div class="section-header">
         <h2 class="section-title">About Me</h2>
@@ -1406,8 +1406,9 @@
       
       <div class="about-content">
         <div class="about-img-container">
-          <img src="./images/profile.jpg" 
-              alt="Jhun-jhun Bonado - Web Developer" class="about-img" id="profileImage">
+          <!-- UPDATED LINE: Changed from ./images/profile.jpg to your Pinterest URL -->
+          <img src="https://i.pinimg.com/736x/28/e4/2f/28e42f330fa2a746244fb093adcebb2f.jpg" 
+               alt="Jhun-jhun Bonado - Web Developer" class="about-img" id="profileImage">
           <button class="image-edit-btn" id="openImageEditor">
             <i class="fas fa-edit"></i> Edit Image
           </button>
@@ -2074,6 +2075,23 @@ HOBBIES
         sepia: 0
       };
       
+      // ADDED: Set default Pinterest image on page load
+      // This ensures your Pinterest image is the default
+      const defaultPinterestImage = "https://i.pinimg.com/736x/28/e4/2f/28e42f330fa2a746244fb093adcebb2f.jpg";
+      
+      // Load saved profile image from localStorage, or use default Pinterest image
+      const savedProfileImage = localStorage.getItem('profileImage');
+      if (savedProfileImage) {
+        profileImage.src = savedProfileImage;
+        currentImageUrl = savedProfileImage;
+      } else {
+        // If no saved image, use the Pinterest image as default
+        profileImage.src = defaultPinterestImage;
+        currentImageUrl = defaultPinterestImage;
+        // Save it to localStorage so it persists
+        localStorage.setItem('profileImage', defaultPinterestImage);
+      }
+      
       // Open image editor
       openImageEditorBtn.addEventListener('click', () => {
         imageEditor.classList.add('active');
@@ -2142,16 +2160,16 @@ HOBBIES
       const pinterestPreview = document.getElementById('pinterestPreview');
       const previewPlaceholder = document.getElementById('previewPlaceholder');
       
-      // Common Pinterest image URLs for testing
+      // Common Pinterest image URLs for testing - INCLUDING YOUR IMAGE
       const pinterestExamples = [
+        "https://i.pinimg.com/736x/28/e4/2f/28e42f330fa2a746244fb093adcebb2f.jpg", // Your image
         "https://ph.pinterest.com/pin/1002895410783779359/",
         "https://i.pinimg.com/736x/1a/2b/3c/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d.jpg",
-        "https://i.pinimg.com/736x/8f/9e/a7/8f9ea7b6c5d4e3f2a1b0c9d8e7f6a5b4.jpg",
-        "https://i.pinimg.com/736x/3c/4d/5e/3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f.jpg"
+        "https://i.pinimg.com/736x/8f/9e/a7/8f9ea7b6c5d4e3f2a1b0c9d8e7f6a5b4.jpg"
       ];
       
-      // Set a random example URL
-      pinterestLinkInput.value = pinterestExamples[Math.floor(Math.random() * pinterestExamples.length)];
+      // Set your Pinterest image as the default in the input field
+      pinterestLinkInput.value = pinterestExamples[0]; // Your image is first
       
       loadPinterestBtn.addEventListener('click', () => {
         const pinterestUrl = pinterestLinkInput.value.trim();
@@ -2404,13 +2422,6 @@ HOBBIES
         return imageExtensions.some(ext => urlLower.includes(ext)) || 
                urlLower.includes('i.pinimg.com') ||
                urlLower.includes('pinimg.com');
-      }
-      
-      // Load saved profile image from localStorage
-      const savedProfileImage = localStorage.getItem('profileImage');
-      if (savedProfileImage) {
-        profileImage.src = savedProfileImage;
-        currentImageUrl = savedProfileImage;
       }
       
       // Load saved filters
